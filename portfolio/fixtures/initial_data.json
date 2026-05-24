@@ -1,0 +1,178 @@
+[
+  {
+    "model": "portfolio.about",
+    "pk": 1,
+    "fields": {
+      "intro_text": "Руковожу строительными проектами более 12 лет — от проектирования до сдачи объекта под ключ. В портфеле жилые комплексы, бизнес-центры, промышленные и административные здания суммарной площадью свыше 50 000 м².\n\nПараллельно развиваюсь в IT: пишу на Django и Java, осваиваю архитектуру backend-систем и DevOps-практики. Строительный опыт помогает видеть проекты целиком — от сметы и подрядчиков до кодовой базы и серверной инфраструктуры.\n\nКибербезопасность — третья область интересов: изучаю OWASP Top 10, инструменты пентеста и методы защиты периметра. Считаю, что современный технический специалист обязан понимать, как защитить то, что строит.",
+      "photo": ""
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 1,
+    "fields": {
+      "title": "Бизнес-центр «Меркурий»",
+      "kind": "construction",
+      "description": "Строительство офисного центра класса A площадью 12 400 м² в центре города. Управление генподрядчиком, авторский надзор, сдача объекта в срок при бюджете 480 млн руб. Применение BIM-технологий для координации инженерных систем.",
+      "year": 2021,
+      "image": "",
+      "order": 1,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 2,
+    "fields": {
+      "title": "ЖК «Северная звезда» — 3-я очередь",
+      "kind": "construction",
+      "description": "Ввод в эксплуатацию жилого комплекса: два корпуса, 320 квартир, паркинг на 180 машиномест. Организация приёмки квартир, устранение замечаний, взаимодействие с надзорными органами. Сдача выполнена на 2 месяца раньше плана.",
+      "year": 2023,
+      "image": "",
+      "order": 2,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 3,
+    "fields": {
+      "title": "Реконструкция административного корпуса",
+      "kind": "construction",
+      "description": "Полная реконструкция здания 1980-х годов постройки: усиление фундамента, замена инженерных сетей, фасадные работы. Объект 6 200 м², бюджет 210 млн руб. Сохранение работы арендаторов в ходе строительства.",
+      "year": 2019,
+      "image": "",
+      "order": 3,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 4,
+    "fields": {
+      "title": "BuildTrack — система управления стройпроектами",
+      "kind": "it",
+      "description": "Django-приложение для отслеживания хода строительных проектов: дашборд прогресса, управление сметами, уведомления подрядчикам. PostgreSQL, REST API, деплой на VPS через Docker Compose. Используется в реальных проектах.",
+      "year": 2024,
+      "image": "",
+      "order": 4,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 5,
+    "fields": {
+      "title": "Микросервис документооборота (Spring Boot)",
+      "kind": "it",
+      "description": "Java-сервис для генерации и хранения строительной документации: акты, исполнительные схемы, наряды-допуски. Интеграция с S3-совместимым хранилищем, очередь задач через RabbitMQ, покрытие unit-тестами 80%+.",
+      "year": 2022,
+      "image": "",
+      "order": 5,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.project",
+    "pk": 6,
+    "fields": {
+      "title": "Security-аудит корпоративной инфраструктуры",
+      "kind": "it",
+      "description": "Проверка защищённости сети и веб-приложений строительной компании: сканирование периметра, анализ OWASP Top 10, ручное тестирование API. Выявлено 14 уязвимостей, подготовлен отчёт с рекомендациями и roadmap исправлений.",
+      "year": 2025,
+      "image": "",
+      "order": 6,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.achievement",
+    "pk": 1,
+    "fields": {
+      "value": "18",
+      "label": "завершённых проектов",
+      "order": 1
+    }
+  },
+  {
+    "model": "portfolio.achievement",
+    "pk": 2,
+    "fields": {
+      "value": "50 000",
+      "label": "м² сданных объектов",
+      "order": 2
+    }
+  },
+  {
+    "model": "portfolio.achievement",
+    "pk": 3,
+    "fields": {
+      "value": "12",
+      "label": "лет опыта в строительстве",
+      "order": 3
+    }
+  },
+  {
+    "model": "portfolio.achievement",
+    "pk": 4,
+    "fields": {
+      "value": "8",
+      "label": "наград и дипломов",
+      "order": 4
+    }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 1,
+    "fields": { "name": "Django / Python", "category": "it", "order": 1 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 2,
+    "fields": { "name": "Java / Spring Boot", "category": "it", "order": 2 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 3,
+    "fields": { "name": "PostgreSQL", "category": "it", "order": 3 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 4,
+    "fields": { "name": "BIM (Revit)", "category": "construction", "order": 1 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 5,
+    "fields": { "name": "AutoCAD", "category": "construction", "order": 2 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 6,
+    "fields": { "name": "Управление подрядчиками", "category": "construction", "order": 3 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 7,
+    "fields": { "name": "OWASP Top 10", "category": "security", "order": 1 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 8,
+    "fields": { "name": "Pentesting", "category": "security", "order": 2 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 9,
+    "fields": { "name": "Защита периметра", "category": "security", "order": 3 }
+  },
+  {
+    "model": "portfolio.contact",
+    "pk": 1,
+    "fields": {
+      "telegram_username": "Kibenissio",
+      "max_url": "",
+      "email": "kozecki2000@gmail.com"
+    }
+  }
+]

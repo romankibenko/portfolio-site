@@ -1,0 +1,81 @@
+
+{% if skills_it or skills_construction or skills_security %}
+<section id="skills" class="section border-b border-[var(--border)]">
+  <div class="container-page">
+
+    <h2 class="section-heading">На<span class="hl">выки</span></h2>
+    <span class="section-divider"></span>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {# IT-разработка #}
+      {% if skills_it %}
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-5 h-5 text-accent-it shrink-0" fill="none"
+               stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25
+                     m7.5-3l-4.5 16.5"/>
+          </svg>
+          <h3 class="font-semibold text-accent-it">IT-разработка</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {% for skill in skills_it %}
+            <span class="chip">{{ skill.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {# Строительство #}
+      {% if skills_construction %}
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-5 h-5 text-accent-construction shrink-0" fill="none"
+               stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21
+                     M6.75 6.75h.75m-.75 3h.75m-.75 3h.75
+                     m3-6h.75m-.75 3h.75m-.75 3h.75
+                     M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25
+                     c.621 0 1.125.504 1.125 1.125V21M3 3h12"/>
+          </svg>
+          <h3 class="font-semibold text-accent-construction">Строительство</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {% for skill in skills_construction %}
+            <span class="chip">{{ skill.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {# Кибербезопасность #}
+      {% if skills_security %}
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-5 h-5 text-accent shrink-0" fill="none"
+               stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M9 12.75L11.25 15 15 9.75
+                     m-3-7.036A11.959 11.959 0 013.598 6
+                     11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623
+                     5.176-1.332 9-6.03 9-11.622
+                     0-1.31-.21-2.571-.598-3.751h-.152
+                     c-3.196 0-6.1-1.248-8.25-3.285z"/>
+          </svg>
+          <h3 class="font-semibold text-accent">Кибербезопасность</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {% for skill in skills_security %}
+            <span class="chip">{{ skill.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+{% endif %}

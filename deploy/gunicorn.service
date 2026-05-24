@@ -1,0 +1,26 @@
+[Unit]
+Description=Gunicorn daemon for portfolio_site
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=deploy
+Group=www-data
+WorkingDirectory=/home/deploy/portfolio_site
+EnvironmentFile=/home/deploy/portfolio_site/.env
+ExecStart=/home/deploy/portfolio_site/.venv/bin/gunicorn \
+    --access-logfile - \
+    --error-logfile - \
+    --workers 3 \
+    --bind unix:/run/gunicorn.sock \
+    --timeout 60 \
+    portfolio_site.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

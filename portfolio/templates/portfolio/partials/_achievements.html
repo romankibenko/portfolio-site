@@ -1,0 +1,32 @@
+
+{% if achievements %}
+<section id="achievements" class="section border-b border-[var(--border)]
+                                  bg-[rgba(255,255,255,0.01)]">
+  <div class="container-page">
+
+    <h2 class="section-heading">Циф<span class="hl">ры</span></h2>
+    <span class="section-divider"></span>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for item in achievements %}
+      <div class="text-center p-6 rounded-xl border border-[var(--border)]
+                  bg-[rgba(255,255,255,0.02)] hover:border-[var(--border-hover)]
+                  transition-colors">
+
+        {# Крупное значение #}
+        <div class="text-4xl sm:text-5xl font-bold text-accent mb-2 leading-none">
+          {{ item.value }}
+        </div>
+
+        {# Подпись #}
+        <div class="text-muted text-sm leading-snug">
+          {{ item.label }}
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endif %}

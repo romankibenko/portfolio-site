@@ -15,9 +15,17 @@ db.sqlite3
 .env
 .env.local
 
+# Sensitive files
+psswd.txt
+
 # Node
 node_modules/
 portfolio/static/portfolio/css/output.css
+
+# Артефакты случайных npm-запусков (имена ушли в файлы вместо stdout)
+/11.13.0
+/portfolio-site@*
+/tailwindcss
 
 # IDE
 .idea/

@@ -1,0 +1,241 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* ══════════════════════════════════════════════════════
+   Дизайн-токены (Tailwind v4 @theme)
+   Генерируют утилиты: bg-accent, text-muted, text-accent-it и т.д.
+   ══════════════════════════════════════════════════════ */
+@theme {
+  --color-bg:                  #0F1115;
+  --color-text:                #E6E8EB;
+  --color-muted:               #9AA0A6;
+  --color-accent:              #2D6A4F;
+  --color-accent-it:           #4FB3BF;
+  --color-accent-construction: #C99A3A;
+
+  /* Системный шрифт — без Google Fonts */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════
+   Базовые стили
+   ══════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    --border:       rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.18);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Тонкий скроллбар */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   Компонентные классы
+   ══════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ── Hero: тонкая SVG-сетка ──────────────────────── */
+  /* Бледная (opacity ~0.06), без шестигранников и матриц */
+  .hero-grid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M60 0L0 0L0 60' fill='none' stroke='white' stroke-width='0.5' stroke-opacity='0.06'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  /* ── Навигационные ссылки <about/> ──────────────── */
+  .nav-tag {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  .nav-tag::before {
+    content: '<';
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .nav-tag::after {
+    content: '/>';
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .nav-tag:hover {
+    color: var(--color-text);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-accent) 70%, transparent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 3px;
+  }
+
+  /* ── Секция ──────────────────────────────────────── */
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* ── Заголовок секции ────────────────────────────── */
+  .section-heading {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+  }
+  .section-heading .hl { color: var(--color-accent); }
+
+  /* ── Разделитель под заголовком ─────────────────── */
+  .section-divider {
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: var(--color-accent);
+    margin-top: 0.75rem;
+    margin-bottom: 3rem;
+    border-radius: 9999px;
+  }
+
+  /* ── Основная CTA-кнопка ─────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 80%, #fff);
+    box-shadow: 0 0 28px rgba(45, 106, 79, 0.45);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* ── Кнопки контактов ────────────────────────────── */
+  .btn-contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.125rem 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    color: var(--color-text);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.02);
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .btn-contact:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 24px rgba(45, 106, 79, 0.18);
+    transform: translateY(-1px);
+  }
+  .btn-contact:active { transform: translateY(0); }
+
+  /* ── Чипы навыков ────────────────────────────────── */
+  .chip {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    border: 1px solid var(--border);
+    color: var(--color-muted);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .chip:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    color: var(--color-text);
+  }
+
+  /* ── Карточка проекта ────────────────────────────── */
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  /* ── Бейджи типа проекта ─────────────────────────── */
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .badge-construction {
+    background: rgba(201, 154, 58, 0.15);
+    color: var(--color-accent-construction);
+    border: 1px solid rgba(201, 154, 58, 0.3);
+  }
+  .badge-it {
+    background: rgba(79, 179, 191, 0.15);
+    color: var(--color-accent-it);
+    border: 1px solid rgba(79, 179, 191, 0.3);
+  }
+
+  /* ── Карточка специализации (в секции About) ─────── */
+  .feature-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.2s;
+  }
+  .feature-card:hover { border-color: var(--border-hover); }
+
+  /* ── Обёртка страницы ────────────────────────────── */
+  .container-page {
+    max-width: 72rem;      /* ~1152px */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

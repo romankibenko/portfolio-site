@@ -1,0 +1,81 @@
+# /etc/nginx/sites-available/portfolio
+# Замените example.ru на свой домен
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.ru www.example.ru;
+
+    # Certbot добавит сюда редирект на HTTPS автоматически.
+    # Не трогайте этот блок вручную до запуска certbot.
+}
+
+# После certbot --nginx этот файл будет дополнен автоматически.
+# Ниже — эталонный вид итоговой конфигурации (HTTPS-блок).
+# certbot добавит listen 443 ssl и параметры сертификата сам.
+# Заголовки безопасности и location-блоки добавьте вручную после certbot.
+
+# ─── Итоговый вид после certbot (справочно) ───────────────────────────────
+#
+# server {
+#     listen 443 ssl http2;
+#     listen [::]:443 ssl http2;
+#     server_name example.ru www.example.ru;
+#
+#     # SSL — управляется certbot, не редактировать вручную
+#     ssl_certificate     /etc/letsencrypt/live/example.ru/fullchain.pem;
+#     ssl_certificate_key /etc/letsencrypt/live/example.ru/privkey.pem;
+#     include             /etc/letsencrypt/options-ssl-nginx.conf;
+#     ssl_dhparam         /etc/letsencrypt/ssl-dhparams.pem;
+#
+#     client_max_body_size 10M;
+#
+#     # ── Статика Django (collectstatic) ───────────────────────
+#     location /static/ {
+#         alias /home/deploy/portfolio_site/staticfiles/;
+#         expires 30d;
+#         add_header Cache-Control "public, immutable";
+#     }
+#
+#     # ── Медиафайлы ────────────────────────────────────────────
+#     location /media/ {
+#         alias /home/deploy/portfolio_site/media/;
+#         expires 7d;
+#         add_header Cache-Control "public";
+#     }
+#
+#     # ── Проксирование на Gunicorn ─────────────────────────────
+#     location / {
+#         include proxy_params;
+#         proxy_pass http://unix:/run/gunicorn.sock;
+#         proxy_read_timeout 60s;
+#         proxy_connect_timeout 60s;
+#     }
+#
+#     # ── Заголовки безопасности ────────────────────────────────
+#     # X-Frame-Options: DENY — также задаётся в settings.py
+#     add_header X-Frame-Options          "DENY"                            always;
+#     add_header X-Content-Type-Options   "nosniff"                         always;
+#     add_header Referrer-Policy          "strict-origin-when-cross-origin" always;
+#     add_header Permissions-Policy       "geolocation=(), microphone=()"   always;
+#
+#     # CSP — настраивается здесь, а не в Django (см. комментарий в settings.py).
+#     # КОМПРОМИСС: 'unsafe-inline' нужен для:
+#     #   • script-src — inline JS бургер-меню и JSON-LD Schema.org в base.html
+#     #   • style-src  — inline-стили Django Admin
+#     # Для полного устранения unsafe-inline потребуется nonce или внешние файлы.
+#     add_header Content-Security-Policy
+#         "default-src 'self'; "
+#         "script-src 'self' 'unsafe-inline'; "
+#         "style-src 'self' 'unsafe-inline'; "
+#         "img-src 'self' data: blob:; "
+#         "font-src 'self'; "
+#         "connect-src 'self'; "
+#         "frame-ancestors 'none'; "
+#         "base-uri 'self'; "
+#         "form-action 'self';"
+#         always;
+#
+#     # Скрываем версию Nginx
+#     server_tokens off;
+# }
