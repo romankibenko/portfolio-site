@@ -35,3 +35,6 @@ portfolio/static/portfolio/css/output.css
 # OS
 .DS_Store
 Thumbs.db
+
+# Playwright (артефакты verify-прогонов)
+.playwright-mcp/

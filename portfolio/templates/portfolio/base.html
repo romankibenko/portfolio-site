@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {# ── SEO ────────────────────────────────────────────────── #}
-  <title>{% block title %}Roman Kozecki — Строительство · IT · Кибербезопасность{% endblock %}</title>
+  <title>{% block title %}Roman Kibenko — Строительство · IT · Кибербезопасность{% endblock %}</title>
   <meta name="description"
-        content="{% block description %}Руководство строительными проектами, веб- и Java-разработка, изучение кибербезопасности{% endblock %}">
+        content="{% block description %}Ведущий инженер в строительстве и веб-разработчик: Java, Python, Vue. Изучаю кибербезопасность — web-уязвимости, пентест, OSINT.{% endblock %}">
 
   {# ── Open Graph ──────────────────────────────────────────── #}
   <meta property="og:type"        content="website">
   <meta property="og:locale"      content="ru_RU">
-  <meta property="og:title"       content="{% block og_title %}Roman Kozecki — Портфолио{% endblock %}">
+  <meta property="og:title"       content="{% block og_title %}Roman Kibenko — Портфолио{% endblock %}">
   <meta property="og:description" content="{% block og_description %}Строительство · IT · Кибербезопасность{% endblock %}">
   <meta property="og:url"         content="{{ request.build_absolute_uri }}">
 
@@ -24,7 +24,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Roman Kozecki",
+    "name": "Roman Kibenko",
     "url": "{{ request.scheme }}://{{ request.get_host }}/",
     "jobTitle": "Руководитель строительных проектов, веб-разработчик"
     {% if contact and contact.email %},"email": "{{ contact.email }}"{% endif %}
@@ -36,13 +36,15 @@
   <link rel="stylesheet" href="{% static 'portfolio/css/output.css' %}">
 </head>
 
-<body class="bg-bg text-text font-sans">
+<body id="top" class="bg-bg text-text font-sans">
+
+<a href="#main" class="skip-link">Перейти к содержимому</a>
 
 <header class="sticky top-0 z-50 border-b border-[var(--border)] bg-bg/90 backdrop-blur-sm">
   <nav class="container-page h-16 flex items-center justify-between">
 
     {# Логотип / имя #}
-    <a href="#" class="font-bold text-lg tracking-tight text-text hover:text-accent transition-colors">
+    <a href="#top" class="font-bold text-lg tracking-tight text-text hover:text-accent transition-colors">
       Roman<span class="text-accent">.</span>
     </a>
 
@@ -81,7 +83,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   {% block content %}{% endblock %}
 </main>
 
@@ -110,6 +112,14 @@
 
   burger.addEventListener('click', function () {
     menu.classList.contains('hidden') ? openMenu() : closeMenu();
+  });
+
+  // Закрытие по Escape с возвратом фокуса на бургер
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+      closeMenu();
+      burger.focus();
+    }
   });
 
   // Закрытие по клику на ссылку в мобильном меню

@@ -79,6 +79,16 @@ class Project(models.Model):
         null=True,
         verbose_name='Изображение',
     )
+    repo_url = models.URLField(
+        blank=True,
+        verbose_name='Ссылка на репозиторий',
+        help_text='GitHub и т.п. Оставьте пустым для приватных проектов.',
+    )
+    live_url = models.URLField(
+        blank=True,
+        verbose_name='Ссылка на демо',
+        help_text='Живой сайт / демо, если есть.',
+    )
     order = models.PositiveSmallIntegerField(
         default=0,
         verbose_name='Порядок',

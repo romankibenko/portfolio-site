@@ -31,6 +31,7 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;          /* нативные контролы/скроллбары в тёмной схеме */
   }
 
   body {
@@ -44,6 +45,39 @@
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-accent) rgba(255, 255, 255, 0.04);
+  }
+
+  /* Видимый focus только для клавиатуры — на всех ссылках и кнопках */
+  :where(a, button):focus-visible {
+    outline: 2px solid var(--color-accent-it);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Skip-to-content: видна только при фокусе с клавиатуры */
+  .skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: -3.5rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--color-accent);
+    color: #fff;
+    transition: top 0.15s;
+  }
+  .skip-link:focus {
+    top: 0.5rem;
+  }
+
+  /* Уважение к prefers-reduced-motion: гасим анимации и плавный скролл */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 }
 

@@ -58,6 +58,33 @@
             {{ project.description|truncatewords:30 }}
           </p>
 
+          {# Ссылки на код / демо — каждая только при заполненном поле #}
+          {% if project.repo_url or project.live_url %}
+          <div class="flex items-center gap-4 mt-4 pt-4 border-t border-[var(--border)]">
+            {% if project.repo_url %}
+            <a href="{{ project.repo_url }}" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent-it transition-colors">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+              </svg>
+              Код
+            </a>
+            {% endif %}
+            {% if project.live_url %}
+            <a href="{{ project.live_url }}" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent-it transition-colors">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5
+                         A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+              </svg>
+              Демо
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
+
         </div>
       </article>
       {% endfor %}

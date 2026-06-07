@@ -3,7 +3,7 @@
     "model": "portfolio.about",
     "pk": 1,
     "fields": {
-      "intro_text": "Руковожу строительными проектами более 12 лет — от проектирования до сдачи объекта под ключ. В портфеле жилые комплексы, бизнес-центры, промышленные и административные здания суммарной площадью свыше 50 000 м².\n\nПараллельно развиваюсь в IT: пишу на Django и Java, осваиваю архитектуру backend-систем и DevOps-практики. Строительный опыт помогает видеть проекты целиком — от сметы и подрядчиков до кодовой базы и серверной инфраструктуры.\n\nКибербезопасность — третья область интересов: изучаю OWASP Top 10, инструменты пентеста и методы защиты периметра. Считаю, что современный технический специалист обязан понимать, как защитить то, что строит.",
+      "intro_text": "С 2008 года в строительстве, сейчас — ведущий инженер в крупной девелоперской компании. За эти годы прошёл через разные объекты: промышленные и коммерческие, последние шесть лет — жилищное строительство. Привык отвечать за результат целиком: от проектной документации и работы с подрядчиками до сдачи объекта.\n\nЭтот же инженерный подход применяю в разработке. Изучил Java и Python/Django, использую их в работе — пишу веб-приложения, которые автоматизируют и ускоряют рутинные процессы (этот сайт — один из них). Строительный бэкграунд помогает видеть систему целиком: где узкое место, что стоит упростить, а что — заложить с запасом. Отдельно слежу за развитием AI и пробую его в своих задачах.\n\nКибербезопасность — третье направление. Практикуюсь на CTF и в bug bounty на платформе Standoff365: ищу уязвимости, разбираю чужие ошибки и лучше понимаю, как защищать то, что строю сам.",
       "photo": ""
     }
   },
@@ -11,11 +11,13 @@
     "model": "portfolio.project",
     "pk": 1,
     "fields": {
-      "title": "Бизнес-центр «Меркурий»",
-      "kind": "construction",
-      "description": "Строительство офисного центра класса A площадью 12 400 м² в центре города. Управление генподрядчиком, авторский надзор, сдача объекта в срок при бюджете 480 млн руб. Применение BIM-технологий для координации инженерных систем.",
-      "year": 2021,
+      "title": "Квартирный надзор — приёмка жилья",
+      "kind": "it",
+      "description": "Веб-система управления финальным этапом строительства жилья: реестр квартир и статусов передачи, учёт и устранение дефектов, импорт данных из Excel, AI-классификация дефектов и ежедневные сводки готовности. Создана под реальные процессы приёмки квартир в крупном жилом строительстве. Java, Spring Boot, PostgreSQL.",
+      "year": 2026,
       "image": "",
+      "repo_url": "",
+      "live_url": "",
       "order": 1,
       "is_published": true
     }
@@ -24,11 +26,13 @@
     "model": "portfolio.project",
     "pk": 2,
     "fields": {
-      "title": "ЖК «Северная звезда» — 3-я очередь",
-      "kind": "construction",
-      "description": "Ввод в эксплуатацию жилого комплекса: два корпуса, 320 квартир, паркинг на 180 машиномест. Организация приёмки квартир, устранение замечаний, взаимодействие с надзорными органами. Сдача выполнена на 2 месяца раньше плана.",
-      "year": 2023,
+      "title": "Bank REST API — управление картами",
+      "kind": "it",
+      "description": "REST API для банковских карт: JWT-аутентификация, ролевая модель ADMIN/USER, шифрование номеров карт (AES), переводы между картами, документация Swagger. Java 21, Spring Boot 3.4, PostgreSQL, Liquibase, Docker, Testcontainers.",
+      "year": 2026,
       "image": "",
+      "repo_url": "https://github.com/romankibenko/Bank_REST",
+      "live_url": "",
       "order": 2,
       "is_published": true
     }
@@ -37,11 +41,13 @@
     "model": "portfolio.project",
     "pk": 3,
     "fields": {
-      "title": "Реконструкция административного корпуса",
-      "kind": "construction",
-      "description": "Полная реконструкция здания 1980-х годов постройки: усиление фундамента, замена инженерных сетей, фасадные работы. Объект 6 200 м², бюджет 210 млн руб. Сохранение работы арендаторов в ходе строительства.",
-      "year": 2019,
+      "title": "FreelanceRadar — мониторинг бирж",
+      "kind": "it",
+      "description": "Telegram-бот мониторинга фриланс-бирж: парсеры площадок и чтение профильных групп, дедупликация заказов, AI-оценка каждого заказа (балл, риски, шаблон ответа) через LLM. В продакшене с весны 2026. Python (async), aiogram, Telethon, PostgreSQL, CI/CD на GitHub Actions.",
+      "year": 2026,
       "image": "",
+      "repo_url": "https://github.com/romankibenko/FreelanceRadar",
+      "live_url": "",
       "order": 3,
       "is_published": true
     }
@@ -50,11 +56,13 @@
     "model": "portfolio.project",
     "pk": 4,
     "fields": {
-      "title": "BuildTrack — система управления стройпроектами",
+      "title": "Habit Tracker — PWA-трекер привычек",
       "kind": "it",
-      "description": "Django-приложение для отслеживания хода строительных проектов: дашборд прогресса, управление сметами, уведомления подрядчикам. PostgreSQL, REST API, деплой на VPS через Docker Compose. Используется в реальных проектах.",
-      "year": 2024,
+      "description": "Трекер привычек в формате PWA: установка на главный экран, офлайн-режим и web-push (VAPID). Бэкенд на FastAPI с чистым SQL, фронт — vanilla JS без фреймворков. Python, FastAPI, PostgreSQL, Service Worker.",
+      "year": 2026,
       "image": "",
+      "repo_url": "https://github.com/romankibenko/habit-tracker-pwa",
+      "live_url": "",
       "order": 4,
       "is_published": true
     }
@@ -63,11 +71,13 @@
     "model": "portfolio.project",
     "pk": 5,
     "fields": {
-      "title": "Микросервис документооборота (Spring Boot)",
+      "title": "Brick & Razor — лендинг барбершопа",
       "kind": "it",
-      "description": "Java-сервис для генерации и хранения строительной документации: акты, исполнительные схемы, наряды-допуски. Интеграция с S3-совместимым хранилищем, очередь задач через RabbitMQ, покрытие unit-тестами 80%+.",
-      "year": 2022,
+      "description": "Лендинг барбершопа с записью через Telegram: заявка уходит в serverless-функцию на Vercel и доставляется администратору ботом — токен бота не попадает в браузер. Vite, Tailwind CSS v4, vanilla JS, Vercel Functions.",
+      "year": 2026,
       "image": "",
+      "repo_url": "https://github.com/romankibenko/barbershop-landing",
+      "live_url": "https://barbershop-landing-wheat.vercel.app",
       "order": 5,
       "is_published": true
     }
@@ -76,11 +86,13 @@
     "model": "portfolio.project",
     "pk": 6,
     "fields": {
-      "title": "Security-аудит корпоративной инфраструктуры",
+      "title": "Это портфолио",
       "kind": "it",
-      "description": "Проверка защищённости сети и веб-приложений строительной компании: сканирование периметра, анализ OWASP Top 10, ручное тестирование API. Выявлено 14 уязвимостей, подготовлен отчёт с рекомендациями и roadmap исправлений.",
-      "year": 2025,
+      "description": "Сайт, который вы сейчас смотрите. Одностраничное портфолио на Django: весь контент редактируется в админке, упор на семантику, доступность и тёмную тему на дизайн-токенах. Python, Django 5.1, Tailwind CSS v4, PostgreSQL. Деплой на собственный VDS (nginx, systemd).",
+      "year": 2026,
       "image": "",
+      "repo_url": "",
+      "live_url": "",
       "order": 6,
       "is_published": true
     }
@@ -89,8 +101,8 @@
     "model": "portfolio.achievement",
     "pk": 1,
     "fields": {
-      "value": "18",
-      "label": "завершённых проектов",
+      "value": "17+",
+      "label": "лет в строительстве",
       "order": 1
     }
   },
@@ -98,73 +110,90 @@
     "model": "portfolio.achievement",
     "pk": 2,
     "fields": {
-      "value": "50 000",
-      "label": "м² сданных объектов",
+      "value": "8",
+      "label": "собственных проектов",
       "order": 2
     }
   },
   {
-    "model": "portfolio.achievement",
-    "pk": 3,
-    "fields": {
-      "value": "12",
-      "label": "лет опыта в строительстве",
-      "order": 3
-    }
+    "model": "portfolio.skill",
+    "pk": 2,
+    "fields": { "name": "Java / Spring Boot", "category": "it", "order": 1 }
   },
   {
-    "model": "portfolio.achievement",
-    "pk": 4,
-    "fields": {
-      "value": "8",
-      "label": "наград и дипломов",
-      "order": 4
-    }
+    "model": "portfolio.skill",
+    "pk": 10,
+    "fields": { "name": "Jmix", "category": "it", "order": 2 }
   },
   {
     "model": "portfolio.skill",
     "pk": 1,
-    "fields": { "name": "Django / Python", "category": "it", "order": 1 }
-  },
-  {
-    "model": "portfolio.skill",
-    "pk": 2,
-    "fields": { "name": "Java / Spring Boot", "category": "it", "order": 2 }
+    "fields": { "name": "Python / Django", "category": "it", "order": 3 }
   },
   {
     "model": "portfolio.skill",
     "pk": 3,
-    "fields": { "name": "PostgreSQL", "category": "it", "order": 3 }
+    "fields": { "name": "PostgreSQL", "category": "it", "order": 4 }
   },
   {
     "model": "portfolio.skill",
-    "pk": 4,
-    "fields": { "name": "BIM (Revit)", "category": "construction", "order": 1 }
+    "pk": 11,
+    "fields": { "name": "TypeScript", "category": "it", "order": 5 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 12,
+    "fields": { "name": "Vue", "category": "it", "order": 6 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 13,
+    "fields": { "name": "Деплой на серверах", "category": "it", "order": 7 }
   },
   {
     "model": "portfolio.skill",
     "pk": 5,
-    "fields": { "name": "AutoCAD", "category": "construction", "order": 2 }
+    "fields": { "name": "AutoCAD", "category": "construction", "order": 1 }
   },
   {
     "model": "portfolio.skill",
     "pk": 6,
-    "fields": { "name": "Управление подрядчиками", "category": "construction", "order": 3 }
+    "fields": { "name": "Управление проектами", "category": "construction", "order": 2 }
   },
   {
     "model": "portfolio.skill",
     "pk": 7,
-    "fields": { "name": "OWASP Top 10", "category": "security", "order": 1 }
+    "fields": { "name": "Web-уязвимости", "category": "security", "order": 1 }
   },
   {
     "model": "portfolio.skill",
     "pk": 8,
-    "fields": { "name": "Pentesting", "category": "security", "order": 2 }
+    "fields": { "name": "Пентест", "category": "security", "order": 2 }
   },
   {
     "model": "portfolio.skill",
     "pk": 9,
-    "fields": { "name": "Защита периметра", "category": "security", "order": 3 }
+    "fields": { "name": "OSINT", "category": "security", "order": 3 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 14,
+    "fields": { "name": "OWASP Top 10", "category": "security", "order": 4 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 15,
+    "fields": { "name": "PortSwigger", "category": "security", "order": 5 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 16,
+    "fields": { "name": "TryHackMe", "category": "security", "order": 6 }
+  },
+  {
+    "model": "portfolio.skill",
+    "pk": 17,
+    "fields": { "name": "Codeby", "category": "security", "order": 7 }
   },
   {
     "model": "portfolio.contact",

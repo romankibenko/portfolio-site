@@ -83,6 +83,9 @@ class ProjectAdmin(admin.ModelAdmin):
         ('Содержимое', {
             'fields': ('description', 'image'),
         }),
+        ('Ссылки', {
+            'fields': ('repo_url', 'live_url'),
+        }),
     )
 
 
