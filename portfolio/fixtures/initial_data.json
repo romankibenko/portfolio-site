@@ -91,7 +91,7 @@
       "description": "Сайт, который вы сейчас смотрите. Одностраничное портфолио на Django: весь контент редактируется в админке, упор на семантику, доступность и тёмную тему на дизайн-токенах. Python, Django 5.1, Tailwind CSS v4, PostgreSQL. Деплой на собственный VDS (nginx, systemd).",
       "year": 2026,
       "image": "",
-      "repo_url": "",
+      "repo_url": "https://github.com/romankibenko/portfolio-site",
       "live_url": "",
       "order": 6,
       "is_published": true
