@@ -6,6 +6,7 @@
 """
 import logging
 
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import About, Achievement, Contact, Project, Skill
@@ -25,3 +26,13 @@ def index(request):
         'contact':              Contact.objects.first(),
     }
     return render(request, 'portfolio/index.html', context)
+
+
+def robots_txt(request):
+    """Отдаёт /robots.txt: открываем сайт, прячем админку."""
+    lines = [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin/',
+    ]
+    return HttpResponse('\n'.join(lines), content_type='text/plain')
