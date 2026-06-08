@@ -84,6 +84,21 @@
   },
   {
     "model": "portfolio.project",
+    "pk": 7,
+    "fields": {
+      "title": "Brick & Razor — админ-панель (CRM)",
+      "kind": "it",
+      "description": "Mini-CRM барбершопа: клиенты, записи и дашборд с аналитикой — вторая часть того же кейса, что и лендинг. JWT-авторизация, графики, демо-доступ. FastAPI, asyncpg (чистый SQL), PostgreSQL; Vue 3, Vuetify, Pinia, TypeScript, Chart.js.",
+      "year": 2026,
+      "image": "",
+      "repo_url": "https://github.com/romankibenko/barbershop-admin",
+      "live_url": "https://barbershop-admin-six.vercel.app",
+      "order": 6,
+      "is_published": true
+    }
+  },
+  {
+    "model": "portfolio.project",
     "pk": 6,
     "fields": {
       "title": "Это портфолио",
@@ -93,7 +108,7 @@
       "image": "",
       "repo_url": "https://github.com/romankibenko/portfolio-site",
       "live_url": "",
-      "order": 6,
+      "order": 7,
       "is_published": true
     }
   },
@@ -110,7 +125,7 @@
     "model": "portfolio.achievement",
     "pk": 2,
     "fields": {
-      "value": "8",
+      "value": "9",
       "label": "собственных проектов",
       "order": 2
     }
