@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "intro_text": "С 2008 года в строительстве, сейчас — ведущий инженер в крупной девелоперской компании. За эти годы прошёл через разные объекты: промышленные и коммерческие, последние шесть лет — жилищное строительство. Привык отвечать за результат целиком: от проектной документации и работы с подрядчиками до сдачи объекта.\n\nЭтот же инженерный подход применяю в разработке. В 2023 начал с Java (SkillBox, JavaRush), а уже в 2024 писал боевой код: пет-проекты и рабочие веб-приложения, которые автоматизируют и ускоряют рутину на стройке. В 2026 добавил Python/Django — на нём сделан и этот сайт. Строительный бэкграунд помогает видеть систему целиком: где узкое место, что стоит упростить, а что — заложить с запасом. Отдельно слежу за развитием AI и пробую его в своих задачах.\n\nКибербезопасностью занимаюсь с 2024 — это третье направление. Практикуюсь на CTF и в bug bounty на платформе Standoff365: ищу уязвимости, разбираю чужие ошибки и лучше понимаю, как защищать то, что строю сам.",
-      "photo": ""
+      "photo": "about/roman.jpg"
     }
   },
   {
@@ -13,12 +13,12 @@
     "fields": {
       "title": "Квартирный надзор — приёмка жилья",
       "kind": "it",
-      "description": "Веб-система управления финальным этапом строительства жилья: реестр квартир и статусов передачи, учёт и устранение дефектов, импорт данных из Excel, AI-классификация дефектов и ежедневные сводки готовности. Создана под реальные процессы приёмки квартир в крупном жилом строительстве. Java, Spring Boot, PostgreSQL.",
+      "description": "Система управления приёмкой жилья для строительного контроля: фиксация дефектов, отчётность, импорт из Excel, AI-классификация замечаний. Закрывает реальную боль девелопера — приёмку квартир веду по работе, поэтому делал не «по ТЗ», а с пониманием процесса изнутри. Java, Jmix / Vaadin, PostgreSQL. Репозиторий приватный — демо по запросу.",
       "year": 2026,
       "image": "projects/kvartirny.png",
       "repo_url": "",
       "live_url": "",
-      "order": 1,
+      "order": 4,
       "is_published": true
     }
   },
@@ -28,12 +28,12 @@
     "fields": {
       "title": "Bank REST API — управление картами",
       "kind": "it",
-      "description": "REST API для банковских карт: JWT-аутентификация, ролевая модель ADMIN/USER, шифрование номеров карт (AES), переводы между картами, документация Swagger. Java 21, Spring Boot 3.4, PostgreSQL, Liquibase, Docker, Testcontainers.",
+      "description": "REST-бэкенд для управления банковскими картами: JWT-аутентификация, ролевая модель ADMIN/USER, шифрование номеров карт, переводы между картами, фильтрация через Specification API. Миграции Liquibase, единый обработчик ошибок, Swagger-документация. Java 21, Spring Boot 3, Spring Security, PostgreSQL, Liquibase.",
       "year": 2026,
       "image": "projects/bank-rest.png",
       "repo_url": "https://github.com/romankibenko/Bank_REST",
       "live_url": "",
-      "order": 2,
+      "order": 5,
       "is_published": true
     }
   },
@@ -43,12 +43,12 @@
     "fields": {
       "title": "FreelanceRadar — мониторинг бирж",
       "kind": "it",
-      "description": "Telegram-бот мониторинга фриланс-бирж: парсеры площадок и чтение профильных групп, дедупликация заказов, AI-оценка каждого заказа (балл, риски, шаблон ответа) через LLM. В продакшене с весны 2026. Python (async), aiogram, Telethon, PostgreSQL, CI/CD на GitHub Actions.",
+      "description": "Telegram-бот мониторит биржи фриланса и каналы по ключевикам, прогоняет каждое объявление через LLM и присылает в личку только релевантные — отсекает шум. В продакшене, деплой на VDS через GitHub Actions + systemd. Python, aiogram 3, Telethon, aiohttp, asyncpg, APScheduler, OpenRouter.",
       "year": 2026,
       "image": "projects/freelance-radar.png",
       "repo_url": "https://github.com/romankibenko/FreelanceRadar",
       "live_url": "",
-      "order": 3,
+      "order": 1,
       "is_published": true
     }
   },
@@ -58,12 +58,12 @@
     "fields": {
       "title": "Habit Tracker — PWA-трекер привычек",
       "kind": "it",
-      "description": "Трекер привычек в формате PWA: установка на главный экран, офлайн-режим и web-push (VAPID). Бэкенд на FastAPI с чистым SQL, фронт — vanilla JS без фреймворков. Python, FastAPI, PostgreSQL, Service Worker.",
+      "description": "PWA-трекер привычек: работает офлайн, ставится на главный экран как нативное приложение, шлёт web-push напоминания. JWT-авторизация, asyncpg, service worker с offline-fallback. Покрыт smoke-тестом на 18 проверок — регистрация, CRUD, чекины, статистика, коды ошибок. Python, FastAPI, PostgreSQL, Web Push (VAPID), Service Worker.",
       "year": 2026,
       "image": "projects/habit-tracker.png",
       "repo_url": "https://github.com/romankibenko/habit-tracker-pwa",
       "live_url": "",
-      "order": 4,
+      "order": 6,
       "is_published": true
     }
   },
@@ -73,12 +73,12 @@
     "fields": {
       "title": "Brick & Razor — лендинг барбершопа",
       "kind": "it",
-      "description": "Лендинг барбершопа с записью через Telegram: заявка уходит в serverless-функцию на Vercel и доставляется администратору ботом — токен бота не попадает в браузер. Vite, Tailwind CSS v4, vanilla JS, Vercel Functions.",
+      "description": "Лендинг барбершопа с записью клиентов: заявка уходит в Telegram через serverless-функцию — токен бота живёт только на сервере и в браузер не утекает. Первая часть кейса Brick & Razor, вторая — админ-панель. Vite, Tailwind CSS, vanilla JS, Vercel Functions.",
       "year": 2026,
       "image": "projects/barbershop-landing.png",
       "repo_url": "https://github.com/romankibenko/barbershop-landing",
       "live_url": "https://barbershop-landing-wheat.vercel.app",
-      "order": 5,
+      "order": 2,
       "is_published": true
     }
   },
@@ -88,12 +88,12 @@
     "fields": {
       "title": "Brick & Razor — админ-панель (CRM)",
       "kind": "it",
-      "description": "Mini-CRM барбершопа: клиенты, записи и дашборд с аналитикой — вторая часть того же кейса, что и лендинг. JWT-авторизация, графики, демо-доступ. FastAPI, asyncpg (чистый SQL), PostgreSQL; Vue 3, Vuetify, Pinia, TypeScript, Chart.js.",
+      "description": "Mini-CRM барбершопа: клиенты, записи и дашборд с KPI и графиками — выручка по услугам и динамика записей. Вторая часть кейса Brick & Razor, первая — лендинг. JWT-авторизация, демо-доступ. FastAPI, asyncpg, JWT; Vue 3, TypeScript, Vuetify, Chart.js.",
       "year": 2026,
       "image": "projects/barbershop-admin.png",
       "repo_url": "https://github.com/romankibenko/barbershop-admin",
       "live_url": "https://barbershop-admin-six.vercel.app",
-      "order": 6,
+      "order": 3,
       "is_published": true
     }
   },
@@ -103,7 +103,7 @@
     "fields": {
       "title": "Это портфолио",
       "kind": "it",
-      "description": "Сайт, который вы сейчас смотрите. Одностраничное портфолио на Django: весь контент редактируется через админку, упор на семантику, доступность и тёмную тему на дизайн-токенах. Python, Django 5.1, Tailwind CSS v4, SQLite.",
+      "description": "Этот сайт. Django: серверный рендеринг, своя модель данных под проекты и разделы, контент через админку, тёмная тема на дизайн-токенах. Развёрнут на PythonAnywhere. Python, Django 5, Tailwind CSS, SQLite.",
       "year": 2026,
       "image": "projects/portfolio.png",
       "repo_url": "https://github.com/romankibenko/portfolio-site",
