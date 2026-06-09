@@ -194,6 +194,18 @@ if not DEBUG:
     # Принудительный редирект HTTP → HTTPS.
     SECURE_SSL_REDIRECT = True
 
+    # За reverse-proxy (PythonAnywhere, nginx) Django получает запрос по http,
+    # а схему исходного соединения передаёт заголовок X-Forwarded-Proto.
+    # Без этого SECURE_SSL_REDIRECT уходит в бесконечный цикл редиректов.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Django 4+ требует доверенные источники со схемой для небезопасных запросов
+    # (вход в админку по HTTPS). Собираем из ALLOWED_HOSTS, исключая localhost.
+    CSRF_TRUSTED_ORIGINS = [
+        f'https://{h}' for h in ALLOWED_HOSTS
+        if h not in ('localhost', '127.0.0.1')
+    ]
+
     # HSTS: браузер запоминает HTTPS на 1 год.
     # КОМПРОМИСС: включайте preload и includeSubDomains только если уверены
     # что все поддомены тоже на HTTPS. При первом деплое можно начать с 3600.
